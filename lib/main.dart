@@ -34,143 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   double hw = 88;
   int pre_result = 0;
   int result = 0;
-  int _counter = 0;
   int stay = 0;
   int stay_two = 0;
   int push = 0;
   int signal = 0; //decide four arithmetic operations
   int signal_2 = 0; //whether or not do immediately before calculation
 
-  void _text() {
-    Text(
-      '$result',
-      style: TextStyle(
-        fontSize: hw,
-      ),
-    );
-  }
-
-  void _zero() {
-    //0
+  void _onNumTap(int num) {
     setState(() {
-      push = 0;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _one() {
-    //1
-    setState(() {
-      push = 1;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _two() {
-    //2
-    setState(() {
-      push = 2;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _three() {
-    //3
-    setState(() {
-      push = 3;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _four() {
-    //4
-    setState(() {
-      push = 4;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _five() {
-    //5
-    setState(() {
-      push = 5;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _six() {
-    //6
-    setState(() {
-      push = 6;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _seven() {
-    //7
-    setState(() {
-      push = 7;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _eight() {
-    //8
-    setState(() {
-      push = 8;
-      if (stay == 0) {
-        stay = push;
-      } else {
-        stay = stay * 10 + push;
-      }
-      pre_result = stay;
-    });
-  }
-
-  void _nine() {
-    //9
-    setState(() {
-      push = 9;
+      push = num;
       if (stay == 0) {
         stay = push;
       } else {
@@ -288,8 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //7
-                    onPressed: _seven,
+                    onPressed: () {
+                      _onNumTap(7);
+                    },
                     child: const Text('7'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -301,8 +174,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //subtraction
-                    onPressed: _eight,
+                    onPressed: () {
+                      _onNumTap(8);
+                    },
                     child: const Text('8'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -313,8 +187,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //multiplication
-                    onPressed: _nine,
+                    onPressed: () {
+                      _onNumTap(9);
+                    },
                     child: const Text('9'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -325,7 +200,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //subtraction
                     onPressed: _subtraction,
                     child: const Text('÷'),
                     style: TextButton.styleFrom(
@@ -342,8 +216,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //addition
-                    onPressed: _four,
+                    onPressed: () {
+                      _onNumTap(4);
+                    },
                     child: const Text('4'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -354,8 +229,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //subtraction
-                    onPressed: _five,
+                    onPressed: () {
+                      _onNumTap(5);
+                    },
                     child: const Text('5'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -367,7 +243,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: hw,
                   child: TextButton(
                     //multiplication
-                    onPressed: _six,
+                    onPressed: () {
+                      _onNumTap(6);
+                    },
                     child: const Text('6'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -396,7 +274,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: hw,
                   child: TextButton(
                     //addition
-                    onPressed: _one,
+                    onPressed: () {
+                      _onNumTap(1);
+                    },
                     child: const Text('1'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -407,8 +287,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: hw,
                   width: hw,
                   child: TextButton(
-                    //subtraction
-                    onPressed: _two,
+                    onPressed: () {
+                      _onNumTap(2);
+                    },
                     child: const Text('2'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -420,7 +301,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: hw,
                   child: TextButton(
                     //multiplication
-                    onPressed: _three,
+                    onPressed: () {
+                      _onNumTap(3);
+                    },
                     child: const Text('3'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
@@ -449,7 +332,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   width: hw,
                   child: TextButton(
                     //addition
-                    onPressed: _zero,
+                    onPressed: () {
+                      _onNumTap(0);
+                    },
                     child: const Text('0'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.black12,
