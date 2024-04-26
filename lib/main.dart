@@ -1,7 +1,3 @@
-import 'dart:ffi';
-import 'dart:typed_data';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -45,128 +41,139 @@ class _MyHomePageState extends State<MyHomePage> {
   int signal = 0; //decide four arithmetic operations
   int signal_2 = 0; //whether or not do immediately before calculation
 
-  void _text(){
-    Text('$result',
-        style: TextStyle(
-        fontSize:hw,
-        ),
+  void _text() {
+    Text(
+      '$result',
+      style: TextStyle(
+        fontSize: hw,
+      ),
     );
-    }
+  }
 
-  void _zero(){ //0
+  void _zero() {
+    //0
     setState(() {
       push = 0;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _one(){ //1
+  void _one() {
+    //1
     setState(() {
-        push = 1;
-      if(stay == 0){
+      push = 1;
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _two(){ //2
+  void _two() {
+    //2
     setState(() {
       push = 2;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _three(){ //3
+  void _three() {
+    //3
     setState(() {
       push = 3;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _four(){ //4
+  void _four() {
+    //4
     setState(() {
       push = 4;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _five(){ //5
+  void _five() {
+    //5
     setState(() {
       push = 5;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _six(){ //6
+  void _six() {
+    //6
     setState(() {
       push = 6;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _seven(){ //7
+  void _seven() {
+    //7
     setState(() {
       push = 7;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _eight(){ //8
+  void _eight() {
+    //8
     setState(() {
       push = 8;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
     });
   }
 
-  void _nine(){ //9
+  void _nine() {
+    //9
     setState(() {
       push = 9;
-      if(stay == 0){
+      if (stay == 0) {
         stay = push;
-      }else{
+      } else {
         stay = stay * 10 + push;
       }
       pre_result = stay;
@@ -175,14 +182,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _addition() {
     setState(() {
-      if(signal == 0 && signal_2 == 0) {
+      if (signal == 0 && signal_2 == 0) {
         stay_two = stay;
         stay = 0;
         signal = 1;
-      }else{ //Do not erase
-        if(signal == 1) {
+      } else {
+        //Do not erase
+        if (signal == 1) {
           result = stay + stay_two;
-        }else if(signal == 2){
+        } else if (signal == 2) {
           result = stay_two - stay;
         }
         stay_two = result;
@@ -195,16 +203,16 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _subtraction(){
+  void _subtraction() {
     setState(() {
-      if(signal == 0 && signal_2 == 0) {
+      if (signal == 0 && signal_2 == 0) {
         stay_two = stay;
         stay = 0;
         signal = 2;
-      }else{
-        if(signal == 1) {
+      } else {
+        if (signal == 1) {
           result = stay + stay_two;
-        }else if(signal == 2){
+        } else if (signal == 2) {
           result = stay_two - stay;
         }
         stay_two = result;
@@ -217,14 +225,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _equal(){
+  void _equal() {
     setState(() {
-      if (signal == 1){
+      if (signal == 1) {
         result = stay + stay_two;
         Text('$result');
-      }else if(signal == 2){
-      result = stay_two - stay;
-      Text('$result');
+      } else if (signal == 2) {
+        result = stay_two - stay;
+        Text('$result');
       }
       stay_two = result;
       push = 0;
@@ -235,7 +243,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _reset(){
+  void _reset() {
     setState(() {
       pre_result = 0;
       result = 0;
@@ -258,81 +266,83 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Row(mainAxisAlignment: MainAxisAlignment.end,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text('$pre_result',
-                style: TextStyle(
-                  fontSize:hw/2,
-                )
-                ),
-              ],
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                Text('$result',
                     style: TextStyle(
-                      fontSize:hw,
-                    )
-                )
-                ]
-            ),
-
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:[
-              SizedBox(
-                height: hw,
-                width: hw,
-                child: TextButton( //7
-                  onPressed: _seven,
-                  child: const Text('7'),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.black12,
-                    shape: const CircleBorder(
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: hw,
-                width: hw,
-                child: TextButton( //subtraction
-                  onPressed: _eight,
-                  child: const Text('8'),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.black12,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: hw,
-                width: hw,
-                child: TextButton( //multiplication
-                  onPressed: _nine,
-                  child: const Text('9'),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.black12,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: hw,
-                width: hw,
-                child: TextButton( //subtraction
-                  onPressed: _subtraction,
-                  child: const Text('÷'),
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.black26,
-                  ),
-                ),
-              ),
+                      fontSize: hw / 2,
+                    )),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:[
+            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              Text('$result',
+                  style: TextStyle(
+                    fontSize: hw,
+                  ))
+            ]),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //addition
+                  child: TextButton(
+                    //7
+                    onPressed: _seven,
+                    child: const Text('7'),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black12,
+                      shape: const CircleBorder(),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: hw,
+                  width: hw,
+                  child: TextButton(
+                    //subtraction
+                    onPressed: _eight,
+                    child: const Text('8'),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black12,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: hw,
+                  width: hw,
+                  child: TextButton(
+                    //multiplication
+                    onPressed: _nine,
+                    child: const Text('9'),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black12,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: hw,
+                  width: hw,
+                  child: TextButton(
+                    //subtraction
+                    onPressed: _subtraction,
+                    child: const Text('÷'),
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.black26,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  height: hw,
+                  width: hw,
+                  child: TextButton(
+                    //addition
                     onPressed: _four,
                     child: const Text('4'),
                     style: TextButton.styleFrom(
@@ -343,7 +353,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //subtraction
+                  child: TextButton(
+                    //subtraction
                     onPressed: _five,
                     child: const Text('5'),
                     style: TextButton.styleFrom(
@@ -354,7 +365,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //multiplication
+                  child: TextButton(
+                    //multiplication
                     onPressed: _six,
                     child: const Text('6'),
                     style: TextButton.styleFrom(
@@ -365,7 +377,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //subtraction
+                  child: TextButton(
+                    //subtraction
                     onPressed: _subtraction,
                     child: const Text('×'),
                     style: TextButton.styleFrom(
@@ -375,12 +388,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //addition
+                  child: TextButton(
+                    //addition
                     onPressed: _one,
                     child: const Text('1'),
                     style: TextButton.styleFrom(
@@ -391,7 +406,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //subtraction
+                  child: TextButton(
+                    //subtraction
                     onPressed: _two,
                     child: const Text('2'),
                     style: TextButton.styleFrom(
@@ -402,7 +418,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //multiplication
+                  child: TextButton(
+                    //multiplication
                     onPressed: _three,
                     child: const Text('3'),
                     style: TextButton.styleFrom(
@@ -413,7 +430,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //subtraction
+                  child: TextButton(
+                    //subtraction
                     onPressed: _subtraction,
                     child: const Text('-'),
                     style: TextButton.styleFrom(
@@ -423,12 +441,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children:[
-                SizedBox(height: hw,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  height: hw,
                   width: hw,
-                  child:
-                  TextButton( //addition
+                  child: TextButton(
+                    //addition
                     onPressed: _zero,
                     child: const Text('0'),
                     style: TextButton.styleFrom(
@@ -436,10 +456,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                SizedBox( //AC
+                SizedBox(
+                  //AC
                   height: hw,
                   width: hw,
-                  child: TextButton( //subtraction
+                  child: TextButton(
+                    //subtraction
                     onPressed: _reset,
                     child: const Text('AC'),
                     style: TextButton.styleFrom(
@@ -447,10 +469,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                SizedBox( //equal
+                SizedBox(
+                  //equal
                   height: hw,
                   width: hw,
-                  child: TextButton( //equal
+                  child: TextButton(
+                    //equal
                     onPressed: _equal,
                     child: const Text('='),
                     style: TextButton.styleFrom(
@@ -461,7 +485,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: hw,
                   width: hw,
-                  child: TextButton( //addition
+                  child: TextButton(
+                    //addition
                     onPressed: _addition,
                     child: const Text('+'),
                     style: TextButton.styleFrom(
@@ -471,7 +496,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ],
             ),
-
           ],
         ),
       ),
